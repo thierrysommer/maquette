@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+
+<head>
+    <title>Création d&#39;un design étape par étape - Etape n°1 : Le code xhtml</title>
+	
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/form.css">
+	<link rel="stylesheet" type="text/css" href="./css/candidat.css">
+
+<script>
+function ChargerFichier(url,id)
+{
+	var xhr_object = null;
+	var position = id;
+	
+	
+	   if(window.XMLHttpRequest)  xhr_object = new XMLHttpRequest();
+	  else
+	    if (window.ActiveXObject)  xhr_object = new ActiveXObject("Microsoft.XMLHTTP"); 
+
+	// On ouvre la requete vers la page désirée
+	xhr_object.open("GET", url, true);
+	xhr_object.onreadystatechange = function(){
+	if ( xhr_object.readyState == 4 )
+	{
+		// j'affiche dans la DIV spécifiées le contenu retourné par le fichier
+		document.getElementById(position).innerHTML = xhr_object.responseText;
+	}
+	}
+	// dans le cas du get
+	xhr_object.send(null);
+}
+
+
+</script>
+</head>
+  
+
+  
+<body onload="ChargerFichier('accueil.php','main1');">
+  
+  
+<div id="divtotale" style="width:100%;">
+ 
+	
+	<header style="width:100%;">
+		
+		
+		<div id="conteneur" >
+			
+			<img id="conteneur-img" src="images/logo.jpg" width="150" height="150" alt="LOGO">
+      	
+			<div id="flex-top">
+				<h1 id="conteneur-h1">MUNICIPALES 2020</h1>
+		
+	  
+				<div id="divmenu">
+					<nav id="menu">
+						<ul >
+							<li id="a-accueil"><a onclick="ChargerFichier('accueil.php', 'main1');">Accueil</a></li>
+          
+							<li id='a-candi'>
+							<a href="#" >Candidats</a>
+					
+								<ul id='ul-candi' >
+												
+									<li><a onclick="ChargerFichier('candidat.php?num-candidat=7','main1');">Candidat 1</a></li>
+									<li><a onclick="ChargerFichier('candidat.php?num-candidat=5','main1');">Candidat 2</a></li>
+									<li><a onclick="ChargerFichier('candidat.php?num-candidat=4','main1');">Candidat 3</a></li>
+									<li><a onclick="ChargerFichier('candidat.php?num-candidat=3','main1');">Candidat 4</a></li>
+									<li><a onclick="ChargerFichier('candidat.php?num-candidat=2','main1');">Candidat 5</a></li>
+									<li><a onclick="ChargerFichier('candidat.php?num-candidat=1','main1');">Candidat 6</a></li>
+									<li><a onclick="ChargerFichier('candidat.php?num-candidat=6','main1');">Candidat 7</a></li>
+								</ul>
+							</li>
+		
+							<li id="a-contact"><a onclick="ChargerFichier('form.html', 'main1-section');">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			
+			</div>
+		
+		</div>
+	
+	</header>
+
+    
+    
+	
+	<div id="main0">
+	
+		<div id="banniere"><p>Image de baniere </p></div>
+		
+		
+		
+		<main id="main1">
+		
+			<section id="main1-section">
+				
+				
+			</section>
+			
+			
+			<aside id="main1-aside">
+				<p>aside</p>
+			</aside>
+		
+		</main>  
+    
+
+
+		<footer>
+			<nav>
+				<p id="footer">Footer de la page</p>
+			</nav>  
+		</footer>
+		
+		
+	</div>
+ 
+
+</div>
+
+
+</body>
+
+
+
+</html>
